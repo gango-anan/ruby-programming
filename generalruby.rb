@@ -1,4 +1,4 @@
-=begin
+
 num_array = Array.new
 puts "Enter 5 elements of the array, press enter after each element:"
 num_array[0] = gets.chomp().to_i
@@ -9,7 +9,7 @@ num_array[4] = gets.chomp().to_i
 puts "=============================="
 puts num_array
 
-=end
+
 puts "==================================="
 
 states = {
