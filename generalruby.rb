@@ -47,3 +47,15 @@ def max (num1, num2, num3)
 end
 
 puts max(1,5,2)
+
+
+
+for count in 0..5
+	puts count
+end
+
+6.times do |index|
+	puts index
+end
+
+
