@@ -1,61 +1,56 @@
+# frozen_string_literal: true
 
-num_array = Array.new
-puts "Enter 5 elements of the array, press enter after each element:"
-num_array[0] = gets.chomp().to_i
-num_array[1] = gets.chomp().to_i
-num_array[2] = gets.chomp().to_i
-num_array[3] = gets.chomp().to_i
-num_array[4] = gets.chomp().to_i
-puts "=============================="
+num_array = []
+puts 'Enter 5 elements of the array, press enter after each element:'
+num_array[0] = gets.chomp.to_i
+num_array[1] = gets.chomp.to_i
+num_array[2] = gets.chomp.to_i
+num_array[3] = gets.chomp.to_i
+num_array[4] = gets.chomp.to_i
+puts '=============================='
 puts num_array
 
-
-puts "==================================="
+puts '==================================='
 
 states = {
-"PA" => "Pennsylvania",
-"NY" => "New York",
-"IA" => "Iowa",
-"OR" => "Oregon"
+  'PA' => 'Pennsylvania',
+  'NY' => 'New York',
+  'IA' => 'Iowa',
+  'OR' => 'Oregon'
 }
 
 puts states
-puts states["IA"]
+puts states['IA']
 
-puts "=========================================================="
+puts '=========================================================='
 
-def sayhi(name1, name2) 
-	return "Hi #{name1}" , "Hi #{name2}"
+def sayhi(name1, name2)
+  ["Hi #{name1}", "Hi #{name2}"]
 end
 
-first_name = "Gango"
-second_name = "Anan"
-
+first_name = 'Gango'
+second_name = 'Anan'
 
 puts sayhi(first_name, second_name)
 
-puts ("======================================================")
+puts('======================================================')
 
-def max (num1, num2, num3)
-	if num1>=num2 and num1>=num3
-		return num1
-	elsif num2>=num1 and num2>=num3
-		return num2
-	else
-		return num3
-	end
+def max(num1, num2, num3)
+  if (num1 >= num2) && (num1 >= num3)
+    num1
+  elsif (num2 >= num1) && (num2 >= num3)
+    num2
+  else
+    num3
+  end
 end
 
-puts max(1,5,2)
+puts max(1, 5, 2)
 
-
-
-for count in 0..5
-	puts count
+(0..5).each do |count|
+  puts count
 end
 
 6.times do |index|
-	puts index
+  puts index
 end
-
-
