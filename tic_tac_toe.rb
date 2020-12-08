@@ -1,4 +1,5 @@
-#Methods
+#METHODS
+##Method for drawing the board
 def draw_board(new_board)
   new_board.each_with_index do |row, i|
     row.each_with_index do |cell, j|
@@ -8,7 +9,7 @@ def draw_board(new_board)
   end
 end
 
-#Method to check if a player has won
+##Method to check if a player has won
 def has_won(new_board)
   #check rows
   new_board.each_with_index do |row, i|
@@ -18,9 +19,9 @@ def has_won(new_board)
   end
 
   #check columns
-  new_board.each_with_index do |cell, col|
-    if new_board[0][col] == new_board[1][col] && new_board[1][col] == new_board[2][col] && new_board[2][col] != '-'
-      return new_board[0][col] 
+  new_board.each_with_index do |col, j|
+    if new_board[0][j] == new_board[1][j] && new_board[1][j] == new_board[2][j] && new_board[2][j] != '-'
+      return new_board[0][j] 
     end
   end
 
@@ -34,10 +35,10 @@ def has_won(new_board)
   end
 
   #No one has won
-  return '_'
+  return '-'
 end
 
-#Method to check if the board is full and a tie
+##Method to check if the board is full and a tie
 def has_tied(new_board)
   new_board.each_with_index do |row,i|
     row.each_with_index do |col,j|
@@ -47,17 +48,17 @@ def has_tied(new_board)
   true
 end
 
+#1. Create the board, initialize it to '-' and display the plain board
+board = Array.new(3){Array.new(3){'-'}} # board = [['-','-','-'],['-','-','-'],['-','-','-']]
+puts "Plain Board:"
+draw_board(board)
+puts ' '
+
 #Start - get the players names  
 puts "Player 1, please enter your name? "
 player1 = gets.chomp
 puts "Player 2, please enter your name? "
 player2 = gets.chomp
-puts ' '
-
-#1. Create the board, initialize it to '-' and display the plain board
-board = Array.new(3){Array.new(3){'-'}} # board = [['-','-','-'],['-','-','-'],['-','-','-']]
-puts "Plain Board:"
-draw_board(board)
 puts ' '
 
  #2. Pick who makes the first move
@@ -95,7 +96,6 @@ until game_ended
     else #Move is valid, get out of the loop
       break
     end
-
   end
 
  #5. Represent the position moved on the board with the player's symbol
@@ -105,20 +105,19 @@ until game_ended
   draw_board(board)
 
  #6. Check if a player has won
-  if p1_move_counter >= 3
-    if has_won(board) == 'X'
-      puts "Congs #{player1} , you win!"
+  
+  if has_won(board) == 'X'
+    puts "Congs #{player1} , you win!"
+    game_ended = true
+  elsif has_won(board) == 'O'
+    puts "Congs #{player2} , you win!"
+    game_ended = true
+  else
+    if has_tied(board)
+      puts "It's a tie!"
       game_ended = true
-    elsif has_won(board) == 'O'
-      puts "Congs #{player2} , you win!"
-      game_ended = true
-    else
-      if has_tied(board)
-        puts "It's a tie!"
-        game_ended = true
-      else #Contine the game
-        is_player1 = !is_player1
-      end
+    else #Contine the game
+      is_player1 = !is_player1
     end
   end
 
