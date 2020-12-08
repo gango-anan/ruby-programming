@@ -66,7 +66,7 @@ is_player1 = true
 
  #3. Start the game and keep checking if the game has ended
 game_ended = false
-p1_move_counter = 0
+#p1_move_counter = 0
 
 until game_ended
   #Assign the symbol to be used by each player
@@ -75,7 +75,7 @@ until game_ended
   #Prompt the player to make a move
   if is_player1
     puts "#{player1} make a move:"
-    p1_move_counter += 1
+    #p1_move_counter += 1
   else
     puts "#{player2} make a move:"
   end
